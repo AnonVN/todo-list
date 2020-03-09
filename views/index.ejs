@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>todo-list</h1>
+
+    <form>
+
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" name="name" class="form-control" value="Paresh" required="">
+      </div>
+
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="text" name="email" class="form-control" value="paresh@gmail.com" required="">
+      </div>
+
+      <button type="submit" class="btn btn-success save-btn">Save</button>
+
+    </form>
+    <br />
+    <table class="table table-bordered data-table">
+      <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th width="200px">Action</th>
+      </thead>
+      <tbody>
+        <% data.forEach(function(user){ %>
+        <tr data-id="<%- user._id %>" data-name="<%- user.name %>" data-email="<%- user.email %>">
+          <td><%- user.name %></td>
+          <td><%- user.email %></td>
+          <td>
+            <button class="btn btn-info btn-xs btn-edit">Edit</button>
+            <button class="btn btn-danger btn-xs btn-delete">Delete</button>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="/javascript/js.js"></script>
+
+</body>
+
+</html>
